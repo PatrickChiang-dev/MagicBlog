@@ -19,14 +19,14 @@ public class LoginController {
 			resp.setMsg("用户名与密码不能为空");
 			return JsonUtil.getJsonString(resp);
 		}
-		if("user0".equals(userName)&&"123456".equals(pwd)){
-			resp.setCode(Response.SUCCESS);
-			resp.setMsg("登录成功");
-			return JsonUtil.getJsonString(resp);
-		}else{
+		if(!("user0".equals(userName)&&"123456".equals(pwd))){
 			resp.setCode(Response.FAIL);
 			resp.setMsg("登录失败");
 			return JsonUtil.getJsonString(resp);
+
 		}
+		resp.setCode(Response.SUCCESS);
+		resp.setMsg("登录成功");
+		return JsonUtil.getJsonString(resp);
 	}
 }
