@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4" />
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/indi/jcl/magicblog/controller/LoginController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/indi/jcl/magicblog/util/JsonUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/indi/jcl/magicblog/vo/Response.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/indi/jcl/magicblog/vo/User.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/js/ajaxSetup.js" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

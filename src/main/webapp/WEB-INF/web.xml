@@ -3,6 +3,29 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
+    <!--权限过滤器-->
+    <filter>
+        <filter-name>permissionFilter</filter-name>
+        <filter-class>indi.jcl.magicblog.filter.PermissionFilter</filter-class>
+        <init-param>
+            <param-name>exclude</param-name>
+            <param-value>login.html</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>permissionFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>permissionFilter</filter-name>
+        <url-pattern>*.htm</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>permissionFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+
+
     <!-- 激活tomcat默认servlet，绕过springMVC的拦截,处理静态资源请求,注：此配置必须在mvc-dispatcher之前-->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -38,8 +61,7 @@
     </servlet-mapping>
 
 
-
-    <!-- springMVC配置 -->
+    <!-- springMVC核心分发器 -->
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -52,6 +74,6 @@
 
 
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>login.html</welcome-file>
     </welcome-file-list>
 </web-app>
