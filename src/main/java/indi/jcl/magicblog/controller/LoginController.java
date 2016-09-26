@@ -1,6 +1,7 @@
 package indi.jcl.magicblog.controller;
 
 import indi.jcl.magicblog.vo.User;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +11,11 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/")
 public class LoginController {
+	private static  Logger logger = Logger.getLogger(LoginController.class);
 	@RequestMapping(value = "login")
 	public String login( String userName,String pwd,HttpSession session)throws Exception{
 		System.out.println("login.......");
+		logger.info("user:"+userName+" ---> login......");
 		if(StringUtils.isEmpty(userName)||StringUtils.isEmpty(pwd)){
 			return "redirect:login.html";
 		}
