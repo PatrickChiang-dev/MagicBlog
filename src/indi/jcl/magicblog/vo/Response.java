@@ -6,8 +6,18 @@ package indi.jcl.magicblog.vo;
 public class Response {
     public static final int SUCCESS = 10000;
     public static final int FAIL = -10000;
+    public static final int EXCEPTION = -20000;
     private int code;
     private String msg;
+
+    public Response(){
+        super();
+    }
+
+    public Response(int code,String msg){
+        this.code = code;
+        this.msg = msg;
+    }
 
     public int getCode() {
         return code;

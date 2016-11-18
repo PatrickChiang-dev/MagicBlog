@@ -11,6 +11,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl implements IUserService{
-    @Autowired
-    private IUserDAO userDAO;
+//    @Autowired
+//    private IUserDAO userDAO;
 }

@@ -40,7 +40,8 @@ public class JsonUtil {
         map.put("code", 10000);
         map.put("msg", "");
         map.put("result", user);
-        System.out.println(getJsonString(user));
+        System.out.println(getJsonString(map));
         System.out.println(toBean(getJsonString(user),User.class));
+
     }
 }
