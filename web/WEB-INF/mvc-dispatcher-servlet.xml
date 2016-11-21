@@ -1,10 +1,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
     <mvc:annotation-driven>
@@ -25,6 +25,15 @@
         </mvc:interceptor>
         <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->
     </mvc:interceptors>
+
+    <bean id="controllerMethodInterceptor" class="indi.jcl.magicblog.interceptor.LogInterceptor"/>
+
+    <!-- 方法拦截器（拦截Controller包中的所有被RequestMapping注解的方法） MethodInterceptor -->
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="controllerMethodPointcut" expression="execution(* indi.jcl.magicblog.controller..*(..)) and
+        	@annotation(org.springframework.web.bind.annotation.RequestMapping)"/>
+        <aop:advisor advice-ref="controllerMethodInterceptor" pointcut-ref="controllerMethodPointcut" />
+    </aop:config>
 
     <context:component-scan base-package="indi.jcl.magicblog"/>
 
