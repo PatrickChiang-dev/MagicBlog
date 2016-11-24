@@ -1,6 +1,8 @@
 package indi.jcl.magicblog.interceptor;
 
 import indi.jcl.magicblog.util.JsonUtil;
+import indi.jcl.magicblog.util.date.DateStyle;
+import indi.jcl.magicblog.util.date.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.method.HandlerMethod;
@@ -37,8 +39,7 @@ public class LogInterceptor extends HandlerInterceptorAdapter {
         String methodName = method.getName();
         String className = method.getDeclaringClass().getName();
         logInfo.append("------------------------------------------------LogInterceptor start------------------------------------------------").append("\r\n");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        logInfo.append("time:" + sdf.format(new Date())).append("\r\n");
+        logInfo.append("time:" + DateUtil.DateToString(new Date(), DateStyle.YYYY_MM_DD_HH_MM_SS_SSS)).append("\r\n");
         logInfo.append("method:" + className + "." + methodName).append("\r\n");
         logInfo.append("params:" + JsonUtil.getJsonString(request.getParameterMap())).append("\r\n");
         begin = System.currentTimeMillis();
@@ -73,4 +74,6 @@ public class LogInterceptor extends HandlerInterceptorAdapter {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         super.afterCompletion(request, response, handler, ex);
     }
+
+
 }
