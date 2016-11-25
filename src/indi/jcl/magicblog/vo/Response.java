@@ -1,5 +1,7 @@
 package indi.jcl.magicblog.vo;
 
+import indi.jcl.magicblog.util.JsonUtil;
+
 /**
  * Created by Administrator on 2016/9/20.
  */
@@ -34,4 +36,11 @@ public class Response {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+    @Override
+    public String toString() {
+        return JsonUtil.getJsonString(this);
+    }
+
+
 }
