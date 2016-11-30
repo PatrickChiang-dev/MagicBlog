@@ -11,12 +11,15 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class LoginController {
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	@Resource
+	private IUserService userService;
 
 	@RequestMapping(value = "login")
 	@ResponseBody
@@ -24,11 +27,12 @@ public class LoginController {
 		if(StringUtils.isEmpty(userName)||StringUtils.isEmpty(pwd)){
 			return new Response(Response.FAIL,"用户名或密码不能为空");
 		}
-		if(!("user0".equals(userName)&&"123456".equals(pwd))){
+		User user = userService.login(userName,pwd);
+		if(user==null){
 			return new Response(Response.FAIL,"用户名或密码错误");
 		}
-		User user = new User();
-		user.setUserName(userName);
+		User i = new User();
+		userService.update(i);
 		session.setAttribute("session",user);
 		return new Response(Response.SUCCESS,"登录成功");
 
