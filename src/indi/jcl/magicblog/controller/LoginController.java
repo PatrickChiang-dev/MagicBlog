@@ -31,8 +31,6 @@ public class LoginController {
 		if(user==null){
 			return new Response(Response.FAIL,"用户名或密码错误");
 		}
-		User i = new User();
-		userService.update(i);
 		session.setAttribute("session",user);
 		return new Response(Response.SUCCESS,"登录成功");
 
