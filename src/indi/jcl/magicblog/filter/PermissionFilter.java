@@ -1,7 +1,5 @@
 package indi.jcl.magicblog.filter;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.*;
@@ -17,12 +15,10 @@ import java.util.List;
  * Created by Magic Long on 2016/9/22.
  */
 public class PermissionFilter implements Filter {
-    private static final Logger logger = LoggerFactory.getLogger(PermissionFilter.class);
     private List<String> excludeList;// 不做过滤的地址
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        logger.info("PermissionFilter......init");
         excludeList = new ArrayList<String>();
         String excludeStr = filterConfig.getInitParameter("exclude");
         String[] arr = excludeStr.split(",");
@@ -33,7 +29,6 @@ public class PermissionFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        logger.info("PermissionFilter......doFilter");
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession(true);
@@ -64,6 +59,5 @@ public class PermissionFilter implements Filter {
 
     @Override
     public void destroy() {
-        logger.info("PermissionFilter......destroy");
     }
 }
