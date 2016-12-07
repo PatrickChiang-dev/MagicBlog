@@ -1,7 +1,5 @@
 package indi.jcl.magicblog.vo;
 
-import indi.jcl.magicblog.util.JsonUtil;
-
 /**
  * Created by Magic Long on 2016/9/20.
  */
@@ -13,11 +11,8 @@ public class Response {
     private String msg;
     private Object result;
 
-    public Response(){
-        super();
-    }
 
-    public Response(int code,String msg){
+    public Response(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
@@ -45,11 +40,6 @@ public class Response {
     public void setMsg(String msg) {
         this.msg = msg;
     }
-
-//    @Override
-//    public String toString() {
-//        return JsonUtil.getJsonString(this);
-//    }
 
 
 }
