@@ -42,7 +42,7 @@ public class PermissionFilter implements Filter {
         path = path.substring(1, path.length());
         if (excludeList.contains(path)) {
             chain.doFilter(req, res);
-            return;
+             return;
         }
         if (session.getAttribute("session") == null) {
             // 此处考虑ajax操作session过期的操作，如果ajax请求过程中session过期，则指定过期状态码为：911.
