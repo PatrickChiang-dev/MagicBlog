@@ -1,6 +1,5 @@
 package indi.jcl.magicblog.service.impl;
 
-import indi.jcl.magicblog.dao.IUserDao;
 import indi.jcl.magicblog.mapper.UserMapper;
 import indi.jcl.magicblog.service.IUserService;
 import indi.jcl.magicblog.vo.User;
@@ -19,8 +18,7 @@ import java.util.List;
 public class UserService implements IUserService {
     @Resource
     private UserMapper userMapper;
-    @Resource
-    private IUserDao userDao;
+
 
     @Override
     public User query(int userId) {
