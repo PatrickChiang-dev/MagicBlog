@@ -42,7 +42,6 @@ public class PermissionFilter implements Filter {
         if (session.getAttribute("session") == null) {
             // 此处考虑ajax操作session过期的操作，如果ajax请求过程中session过期，则指定过期状态码为：911.
             String requestType = request.getHeader("X-Requested-With");
-            // response.sendRedirect("login.html");
             if (!StringUtils.isEmpty(requestType) && requestType.equalsIgnoreCase("XMLHttpRequest")) {
                 response.setStatus(911);
                 response.setHeader("sessionstatus", "timeout");
