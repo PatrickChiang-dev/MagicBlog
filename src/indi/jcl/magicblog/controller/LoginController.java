@@ -18,24 +18,24 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class LoginController {
-	@Resource
-	private IUserService userService;
-	@Resource
-	private HttpSession session;
+    @Resource
+    private IUserService userService;
+    @Resource
+    private HttpSession session;
 
-	@RequestMapping("login")
-	@ResponseBody
-	public Response login(User user)throws Exception{
-		String userName = user.getUserName();
-		String pwd = user.getPwd();
-		if(StringUtils.isEmpty(userName)||StringUtils.isEmpty(pwd)){
-			return Response.FAIL.setMsg("用户名或密码不能为空");
-		}
-		User u = userService.login(userName,pwd);
-		if(user==null){
-			return Response.FAIL.setMsg("用户名或密码错误");
-		}
-		session.setAttribute("session",u);
-		return Response.SUCCESS.setMsg("登录成功");
-	}
+    @RequestMapping("login")
+    @ResponseBody
+    public Response login(User user) throws Exception {
+        String userName = user.getUserName();
+        String pwd = user.getPwd();
+        if (StringUtils.isEmpty(userName) || StringUtils.isEmpty(pwd)) {
+            return Response.FAIL.setMsg("用户名或密码不能为空");
+        }
+        user = userService.login(userName, pwd);
+        if (user == null) {
+            return Response.FAIL.setMsg("用户名或密码错误");
+        }
+        session.setAttribute("session", user);
+        return Response.SUCCESS.setMsg("登录成功");
+    }
 }

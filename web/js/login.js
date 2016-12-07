@@ -6,7 +6,7 @@ function login() {
     param.pwd = pwd;
     $.post("login",param,function(resp){
         if(resp.code==10000){
-            window.location.href = "index.html";
+            document.location.href = "index.html";
         }else{
             alert(resp.msg);
         }
