@@ -3,7 +3,7 @@ package indi.jcl.magicblog.vo;
 import indi.jcl.magicblog.util.JsonUtil;
 
 /**
- * Created by Administrator on 2016/9/20.
+ * Created by Magic Long on 2016/9/20.
  */
 public class Response {
     public static final int SUCCESS = 10000;
@@ -11,6 +11,7 @@ public class Response {
     public static final int EXCEPTION = -20000;
     private int code;
     private String msg;
+    private Object result;
 
     public Response(){
         super();
@@ -19,6 +20,14 @@ public class Response {
     public Response(int code,String msg){
         this.code = code;
         this.msg = msg;
+    }
+
+    public Object getResult() {
+        return result;
+    }
+
+    public void setResult(Object result) {
+        this.result = result;
     }
 
     public int getCode() {
@@ -37,10 +46,10 @@ public class Response {
         this.msg = msg;
     }
 
-    @Override
-    public String toString() {
-        return JsonUtil.getJsonString(this);
-    }
+//    @Override
+//    public String toString() {
+//        return JsonUtil.getJsonString(this);
+//    }
 
 
 }

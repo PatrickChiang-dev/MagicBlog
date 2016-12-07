@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by Administrator on 2016/9/22.
+ * Created by Magic Long on 2016/9/22.
  */
 public class PermissionInterceptor extends HandlerInterceptorAdapter {
     @Override

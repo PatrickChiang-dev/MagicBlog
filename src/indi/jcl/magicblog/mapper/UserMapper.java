@@ -6,7 +6,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/9/26.
+ * Created by Magic Long on 2016/9/26.
  */
 
 public interface UserMapper {

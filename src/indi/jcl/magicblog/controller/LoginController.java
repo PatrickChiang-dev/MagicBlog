@@ -20,18 +20,22 @@ import java.util.List;
 public class LoginController {
 	@Resource
 	private IUserService userService;
+	@Resource
+	private HttpSession session;
 
-	@RequestMapping(value = "login")
+	@RequestMapping("login")
 	@ResponseBody
-	public Response login( String userName,String pwd,HttpSession session)throws Exception{
+	public Response login(User user)throws Exception{
+		String userName = user.getUserName();
+		String pwd = user.getPwd();
 		if(StringUtils.isEmpty(userName)||StringUtils.isEmpty(pwd)){
 			return new Response(Response.FAIL,"用户名或密码不能为空");
 		}
-		User user = userService.login(userName,pwd);
+		User u = userService.login(userName,pwd);
 		if(user==null){
 			return new Response(Response.FAIL,"用户名或密码错误");
 		}
-		session.setAttribute("session",user);
+		session.setAttribute("session",u);
 		return new Response(Response.SUCCESS,"登录成功");
 
 	}

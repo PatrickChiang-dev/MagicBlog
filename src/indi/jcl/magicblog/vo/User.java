@@ -1,7 +1,7 @@
 package indi.jcl.magicblog.vo;
 
 /**
- * Created by Administrator on 2016/9/20.
+ * Created by Magic Long on 2016/9/20.
  */
 public class User {
     private int userId;

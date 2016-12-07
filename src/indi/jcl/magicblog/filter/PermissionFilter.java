@@ -14,7 +14,7 @@ import java.util.List;
 
 
 /**
- * Created by Administrator on 2016/9/22.
+ * Created by Magic Long on 2016/9/22.
  */
 public class PermissionFilter implements Filter {
     private static final Logger logger = LoggerFactory.getLogger(PermissionFilter.class);

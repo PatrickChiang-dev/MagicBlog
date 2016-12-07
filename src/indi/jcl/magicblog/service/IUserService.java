@@ -5,7 +5,7 @@ import indi.jcl.magicblog.vo.User;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/9/26.
+ * Created by Magic Long on 2016/9/26.
  */
 public interface IUserService {
     public User query(int userId);
