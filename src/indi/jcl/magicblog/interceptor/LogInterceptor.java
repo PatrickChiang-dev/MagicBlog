@@ -32,7 +32,7 @@ public class LogInterceptor implements MethodInterceptor {
         logInfo.append("time:" + DateUtil.DateToString(new Date(), DateStyle.YYYY_MM_DD_HH_MM_SS_SSS)).append("\r\n");//请求时间
         logInfo.append("method:" + className + "." + methodName).append("\r\n");//包.类名.方法名
         logInfo.append("params:"+JsonUtil.getJsonString(methodInvocation.getArguments())).append("\r\n");//入参
-        logInfo.append("result:" + result).append("\r\n");//返回结果
+        logInfo.append("result:" + JsonUtil.getJsonString(result)).append("\r\n");//返回结果
         long cost = end - begin;
         logInfo.append("cost:" + cost + "ms").append("\r\n");//耗时
         logInfo.append("-------------------------------------------------LogInterceptor end-------------------------------------------------").append("\r\n");
