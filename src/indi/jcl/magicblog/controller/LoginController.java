@@ -29,14 +29,13 @@ public class LoginController {
 		String userName = user.getUserName();
 		String pwd = user.getPwd();
 		if(StringUtils.isEmpty(userName)||StringUtils.isEmpty(pwd)){
-			return new Response(Response.FAIL,"用户名或密码不能为空");
+			return Response.FAIL.setMsg("用户名或密码不能为空");
 		}
 		User u = userService.login(userName,pwd);
 		if(user==null){
-			return new Response(Response.FAIL,"用户名或密码错误");
+			return Response.FAIL.setMsg("用户名或密码错误");
 		}
 		session.setAttribute("session",u);
-		return new Response(Response.SUCCESS,"登录成功");
-
+		return Response.SUCCESS.setMsg("登录成功");
 	}
 }

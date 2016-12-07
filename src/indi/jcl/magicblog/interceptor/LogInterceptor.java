@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * 日志拦截器
- * Created by jcl on 2016/12/01.
+ * Created by Magic Long on 2016/12/2.
  */
 public class LogInterceptor implements MethodInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(LogInterceptor.class);

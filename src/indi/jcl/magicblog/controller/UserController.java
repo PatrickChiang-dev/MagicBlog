@@ -20,8 +20,6 @@ public class UserController {
     @ResponseBody
     public Response query(User user) throws Exception {
         List<User> list = userService.query(user);
-        Response resp =  new Response(Response.SUCCESS, "成功");
-        resp.setResult(list);
-        return resp;
+        return Response.SUCCESS.setResult(list);
     }
 }

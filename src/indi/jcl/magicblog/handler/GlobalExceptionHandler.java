@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     public Response handleException(Exception e) {
         String expInfo =  getExceptionInfo(e);
         logger.warn(expInfo);
-        return new Response(Response.EXCEPTION,expInfo);
+        return Response.EXCEPTION.setResult(expInfo);
     }
 
     private String getExceptionInfo(Throwable e) {
