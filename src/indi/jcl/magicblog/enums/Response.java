@@ -1,4 +1,4 @@
-package indi.jcl.magicblog.vo;
+package indi.jcl.magicblog.enums;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
