@@ -22,7 +22,7 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
                 response.setHeader("sessionstatus", "timeout");
                 response.addHeader("loginPath", "login.html");
             }
-            response.sendRedirect("/" + request.getContextPath() + "/login.html");
+            response.sendRedirect(request.getContextPath() + "/login.html");
             return false;
         } else {
             return true;

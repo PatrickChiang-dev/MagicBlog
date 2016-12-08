@@ -32,7 +32,7 @@ public class PermissionFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession(true);
-        String loginPath = "/" + request.getContextPath() + "/login.html";
+        String loginPath = request.getContextPath() + "/login.html";
         String path = request.getServletPath();
         path = path.substring(1, path.length());
         if (excludeList.contains(path)) {
