@@ -21,7 +21,11 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Response handleException(Exception e) {
         String expInfo =  getExceptionInfo(e);
-        logger.warn(expInfo);
+        StringBuilder logInfo = new StringBuilder();
+        logInfo.append("------------------------------------------------GlobalExceptionHandler start------------------------------------------------").append("\r\n");
+        logInfo.append(expInfo).append("\r\n");
+        logInfo.append("------------------------------------------------GlobalExceptionHandler end--------------------------------------------------").append("\r\n");
+        logger.warn(logInfo.toString());
         return Response.EXCEPTION().setResult(expInfo);
     }
 

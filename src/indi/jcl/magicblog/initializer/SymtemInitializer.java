@@ -19,7 +19,7 @@ public class SymtemInitializer implements InitializingBean {
         StringBuilder logInfo = new StringBuilder();
         logInfo.append("------------------------------------------------SymtemInitializer start------------------------------------------------").append("\r\n");
 
-        logInfo.append("-------------------------------------------------SymtemInitializer end-------------------------------------------------").append("\r\n");
+        logInfo.append("------------------------------------------------SymtemInitializer end--------------------------------------------------").append("\r\n");
         logger.info(logInfo.toString());
     }
 
