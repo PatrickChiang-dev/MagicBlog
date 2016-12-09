@@ -1,7 +1,7 @@
 package indi.jcl.magicblog.controller;
 
 import indi.jcl.magicblog.service.IUserService;
-import indi.jcl.magicblog.enums.Response;
+import indi.jcl.magicblog.vo.Response;
 import indi.jcl.magicblog.vo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -25,13 +25,13 @@ public class LoginController {
         String userName = user.getUserName();
         String pwd = user.getPwd();
         if (StringUtils.isEmpty(userName) || StringUtils.isEmpty(pwd)) {
-            return Response.FAIL.setMsg("用户名或密码不能为空");
+            return Response.FAIL().setMsg("用户名或密码不能为空");
         }
         user = userService.login(userName, pwd);
         if (user == null) {
-            return Response.FAIL.setMsg("用户名或密码错误");
+            return Response.FAIL().setMsg("用户名或密码错误");
         }
         session.setAttribute("session", user);
-        return Response.SUCCESS.setMsg("登录成功");
+        return Response.SUCCESS().setMsg("登录成功");
     }
 }

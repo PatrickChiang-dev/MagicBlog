@@ -1,7 +1,7 @@
 package indi.jcl.magicblog.controller;
 
 import indi.jcl.magicblog.service.IUserService;
-import indi.jcl.magicblog.enums.Response;
+import indi.jcl.magicblog.vo.Response;
 import indi.jcl.magicblog.vo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +20,6 @@ public class UserController {
     @ResponseBody
     public Response query(User user) throws Exception {
         List<User> list = userService.query(user);
-        return Response.SUCCESS.setResult(list);
+        return Response.SUCCESS().setResult(list);
     }
 }

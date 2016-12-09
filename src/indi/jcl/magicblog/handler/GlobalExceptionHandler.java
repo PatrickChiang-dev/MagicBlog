@@ -1,6 +1,6 @@
 package indi.jcl.magicblog.handler;
 
-import indi.jcl.magicblog.enums.Response;
+import indi.jcl.magicblog.vo.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     public Response handleException(Exception e) {
         String expInfo =  getExceptionInfo(e);
         logger.warn(expInfo);
-        return Response.EXCEPTION.setResult(expInfo);
+        return Response.EXCEPTION().setResult(expInfo);
     }
 
     private String getExceptionInfo(Throwable e) {
