@@ -22,4 +22,11 @@ public class UserController {
         List<User> list = userService.query(user);
         return Response.SUCCESS().setResult(list);
     }
+
+    @RequestMapping("add")
+    @ResponseBody
+    public Response add(User user) throws Exception {
+        userService.add(user);
+        return Response.SUCCESS();
+    }
 }

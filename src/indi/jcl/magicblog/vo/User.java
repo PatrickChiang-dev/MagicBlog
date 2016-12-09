@@ -7,6 +7,7 @@ public class User {
     private int userId;
     private String userName;
     private String pwd;
+    private String insertTime;
 
     private String userNameLike;
 
@@ -40,5 +41,13 @@ public class User {
 
     public void setPwd(String pwd) {
         this.pwd = pwd;
+    }
+
+    public String getInsertTime() {
+        return insertTime;
+    }
+
+    public void setInsertTime(String insertTime) {
+        this.insertTime = insertTime;
     }
 }

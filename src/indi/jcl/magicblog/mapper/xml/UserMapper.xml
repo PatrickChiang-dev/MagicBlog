@@ -39,7 +39,7 @@
     </update>
 
     <insert id="insert" parameterType="indi.jcl.magicblog.vo.User" useGeneratedKeys="true" keyProperty="userId">
-        INSERT INTO user (userName, pwd) VALUES (#{userName}, #{pwd})
+        INSERT INTO user (userName, pwd, insertTime) VALUES (#{userName}, #{pwd}, #{insertTime})
     </insert>
 
     <delete id="delete" parameterType="int">
